@@ -1,0 +1,10 @@
+# ASP.NET
+bin/
+obj/
+# Archivos de configuración
+*.user
+*.vspscc
+.vs/
+# Archivos de base de datos de Visual Studio
+*.dbmdl
+*.bak

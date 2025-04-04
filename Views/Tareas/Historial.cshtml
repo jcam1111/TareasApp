@@ -1,0 +1,27 @@
+﻿@model IEnumerable<TareasApp.Models.HistorialTarea>
+
+@{
+    ViewData["Title"] = "Historial de Tarea";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Observaciones</th>
+            <th>Usuario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var historial in Model)
+        {
+            <tr>
+                <td>@historial.FechaCambio</td>
+                <td>@historial.Observaciones</td>
+                <td>@historial.Usuario.Nombre</td>
+            </tr>
+        }
+    </tbody>
+</table>

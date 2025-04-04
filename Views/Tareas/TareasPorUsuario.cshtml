@@ -1,0 +1,41 @@
+﻿@model TareasApp.Models.TareasAsignadasViewModel
+
+@{
+    ViewData["Title"] = "Tareas por Usuario";
+}
+
+<h2>@ViewData["Title"] - @Model.UsuarioNombre</h2>
+
+@if (Model.Tareas.Any())
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Fecha de Vencimiento</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tarea in Model.Tareas)
+            {
+                <tr>
+                    <td>@tarea.Titulo</td>
+                    <td>@tarea.Descripcion</td>
+                    <td>@tarea.FechaVencimiento.ToShortDateString()</td>
+                    <td>@tarea.EstadoTarea.Descripcion</td>
+                    <td>
+                        <a href="@Url.Action("Editar", "Tareas", new { id = tarea.TareaID })" class="btn btn-warning">Editar</a>
+                        <a href="@Url.Action("Eliminar", "Tareas", new { id = tarea.TareaID })" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No tienes tareas asignadas.</p>
+}

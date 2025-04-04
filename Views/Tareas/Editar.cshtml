@@ -1,0 +1,25 @@
+﻿@model TareasApp.Models.Tarea
+
+@{
+    ViewData["Title"] = "Editar Tarea";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Editar" method="post">
+    <input type="hidden" name="TareaID" value="@Model.TareaID" />
+
+    <div class="form-group">
+        <label for="Titulo">Título</label>
+        <input type="text" class="form-control" id="Titulo" name="Titulo" value="@Model.Titulo" required />
+    </div>
+    <div class="form-group">
+        <label for="Descripcion">Descripción</label>
+        <textarea class="form-control" id="Descripcion" name="Descripcion" rows="4">@Model.Descripcion</textarea>
+    </div>
+    <div class="form-group">
+        <label for="FechaVencimiento">Fecha de Vencimiento</label>
+        <input type="date" class="form-control" id="FechaVencimiento" name="FechaVencimiento" value="@Model.FechaVencimiento.ToString("yyyy-MM-dd")" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar Tarea</button>
+</form>
